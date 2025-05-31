@@ -1,0 +1,17 @@
+.vscode/**
+.vscode-test/**
+src/**
+out/**
+node_modules/**
+.gitignore
+webpack.config.js
+tsconfig.json
+.eslintrc.json
+**/*.ts
+**/*.map
+.github/**
+.git/**
+**/.DS_Store
+generate-icon.js
+convert-icon.js
+temp-icon-generator.html

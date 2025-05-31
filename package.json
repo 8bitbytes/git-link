@@ -1,0 +1,139 @@
+{
+  "name": "git-link",
+  "displayName": "Git Link",
+  "description": "Copy Git links to files and code snippets with customizable domain options",
+  "version": "0.1.0",
+  "publisher": "peterhallock",
+  "author": {
+    "name": "Peter Hallock"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/8bitbytes/gitlink"
+  },
+  "homepage": "https://github.com/8bitbytes/gitlink/blob/main/README.md",
+  "bugs": {
+    "url": "https://github.com/8bitbytes/gitlink/issues"
+  },
+  "license": "MIT",
+  "icon": "media/icon.png",
+  "galleryBanner": {
+    "color": "#2c3e50",
+    "theme": "dark"
+  },
+  "engines": {
+    "vscode": "^1.60.0"
+  },
+  "categories": [
+    "Other",
+    "SCM Providers"
+  ],
+  "keywords": [
+    "git",
+    "link",
+    "github",
+    "gitlab",
+    "bitbucket",
+    "share code",
+    "collaboration"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "git-link.copyGitLink",
+        "title": "Copy Git Link to Selection"
+      },
+      {
+        "command": "git-link.copyFileGitLink",
+        "title": "Copy Git Link to File"
+      },
+      {
+        "command": "git-link.openSettings",
+        "title": "Open Git Link Settings"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "git-link.copyGitLink",
+          "group": "navigation"
+        }
+      ],
+      "editor/title/context": [
+        {
+          "command": "git-link.copyFileGitLink",
+          "group": "navigation"
+        }
+      ],
+      "explorer/context": [
+        {
+          "command": "git-link.copyFileGitLink",
+          "group": "navigation"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "Git Link",
+      "properties": {
+        "gitLink.useCustomUrl": {
+          "type": "boolean",
+          "description": "Always use a custom URL instead of the Git remote URL",
+          "default": false
+        },
+        "gitLink.customUrl": {
+          "type": "string",
+          "description": "Custom URL to use as the base for Git links. If it includes a path (contains '/'), the entire URL will be used. If it's just a domain (e.g., 'github.mycompany.com'), only the domain will be replaced while keeping the repository path.",
+          "default": ""
+        },
+        "gitLink.customDomains": {
+          "type": "array",
+          "description": "List of custom domains that can be selected for Git links",
+          "items": {
+            "type": "string"
+          },
+          "default": []
+        },
+        "gitLink.lastUsedDomain": {
+          "type": "string",
+          "description": "The last used custom domain",
+          "default": ""
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run package",
+    "compile": "webpack",
+    "watch": "webpack --watch",
+    "package": "webpack --mode production --devtool hidden-source-map",
+    "test-compile": "tsc -p ./",
+    "test-watch": "tsc -watch -p ./",
+    "pretest": "npm run test-compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/glob": "^7.1.3",
+    "@types/mocha": "^8.2.2",
+    "@types/node": "^14.17.0",
+    "@types/sinon": "^17.0.4",
+    "@types/vscode": "^1.60.0",
+    "@typescript-eslint/eslint-plugin": "^4.26.0",
+    "@typescript-eslint/parser": "^4.26.0",
+    "@vscode/test-electron": "^2.5.2",
+    "eslint": "^7.32.0",
+    "glob": "^7.1.7",
+    "mocha": "^8.4.0",
+    "sharp": "^0.34.2",
+    "sinon": "^20.0.0",
+    "ts-loader": "^9.2.2",
+    "typescript": "^4.3.2",
+    "vscode-test": "^1.5.2",
+    "webpack": "^5.38.1",
+    "webpack-cli": "^4.7.0"
+  }
+}

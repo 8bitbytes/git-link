@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="128" height="128" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="128" height="128" rx="16" fill="#2c3e50"/>
+  
+  <!-- Link Symbol (right) -->
+  <g transform="translate(64, 64) rotate(45) translate(-28, -28)">
+    <rect x="8" y="24" width="40" height="8" rx="4" fill="#3498db"/>
+    <circle cx="12" cy="28" r="12" fill="#2980b9"/>
+    <circle cx="44" cy="28" r="12" fill="#2980b9"/>
+  </g>
+  
+  <!-- Link Symbol (left) -->
+  <g transform="translate(64, 64) rotate(-135) translate(-28, -28)">
+    <rect x="8" y="24" width="40" height="8" rx="4" fill="#e74c3c"/>
+    <circle cx="12" cy="28" r="12" fill="#c0392b"/>
+    <circle cx="44" cy="28" r="12" fill="#c0392b"/>
+  </g>
+  
+  <!-- Git Branch Dot -->
+  <circle cx="64" cy="64" r="16" fill="#f1c40f" stroke="#f39c12" stroke-width="4"/>
+  
+  <!-- Outline -->
+  <rect width="128" height="128" rx="16" fill="none" stroke="#ecf0f1" stroke-width="2" opacity="0.2"/>
+</svg> 
