@@ -1,25 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="128" height="128" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
-  <!-- Background -->
-  <rect width="128" height="128" rx="16" fill="#2c3e50"/>
-  
-  <!-- Link Symbol (right) -->
-  <g transform="translate(64, 64) rotate(45) translate(-28, -28)">
-    <rect x="8" y="24" width="40" height="8" rx="4" fill="#3498db"/>
-    <circle cx="12" cy="28" r="12" fill="#2980b9"/>
-    <circle cx="44" cy="28" r="12" fill="#2980b9"/>
-  </g>
-  
-  <!-- Link Symbol (left) -->
-  <g transform="translate(64, 64) rotate(-135) translate(-28, -28)">
-    <rect x="8" y="24" width="40" height="8" rx="4" fill="#e74c3c"/>
-    <circle cx="12" cy="28" r="12" fill="#c0392b"/>
-    <circle cx="44" cy="28" r="12" fill="#c0392b"/>
-  </g>
-  
-  <!-- Git Branch Dot -->
-  <circle cx="64" cy="64" r="16" fill="#f1c40f" stroke="#f39c12" stroke-width="4"/>
-  
-  <!-- Outline -->
-  <rect width="128" height="128" rx="16" fill="none" stroke="#ecf0f1" stroke-width="2" opacity="0.2"/>
+    <!-- Background -->
+    <rect width="128" height="128" rx="14" fill="#2C3E50"/>
+    
+    <!-- Code Block (Left) -->
+    <rect x="24" y="32" width="32" height="64" rx="4" 
+          fill="#3498DB" opacity="0.9"/>
+    
+    <!-- Code Lines (Left) -->
+    <g fill="#FFFFFF" opacity="0.6">
+        <rect x="30" y="40" width="20" height="3" rx="1.5"/>
+        <rect x="30" y="48" width="16" height="3" rx="1.5"/>
+        <rect x="30" y="56" width="20" height="3" rx="1.5"/>
+        <rect x="30" y="64" width="12" height="3" rx="1.5"/>
+    </g>
+    
+    <!-- Code Block (Right) -->
+    <rect x="72" y="32" width="32" height="64" rx="4" 
+          fill="#E74C3C" opacity="0.9"/>
+    
+    <!-- Code Lines (Right) -->
+    <g fill="#FFFFFF" opacity="0.6">
+        <rect x="78" y="40" width="20" height="3" rx="1.5"/>
+        <rect x="78" y="48" width="16" height="3" rx="1.5"/>
+        <rect x="78" y="56" width="20" height="3" rx="1.5"/>
+        <rect x="78" y="64" width="12" height="3" rx="1.5"/>
+    </g>
+    
+    <!-- Connecting Arrow -->
+    <g>
+        <!-- Main Curved Arrow -->
+        <path d="M 56,54 
+                 C 60,54 60,54 64,54
+                 S 68,54 72,54"
+              fill="none"
+              stroke="#F1C40F" 
+              stroke-width="4"
+              stroke-linecap="round"/>
+        
+        <!-- Arrow Head -->
+        <path d="M 68,50 L 72,54 L 68,58" 
+              fill="none"
+              stroke="#F1C40F" 
+              stroke-width="4"
+              stroke-linecap="round"
+              stroke-linejoin="round"/>
+    </g>
+    
+    <!-- Selection Highlight -->
+    <rect x="28" y="46" width="24" height="16" rx="2" 
+          fill="#FFFFFF" fill-opacity="0.1" 
+          stroke="#FFFFFF" stroke-width="1" stroke-opacity="0.3"/>
+    
+    <!-- Border -->
+    <rect width="126" height="126" x="1" y="1" rx="13" 
+          stroke="#FFFFFF" stroke-width="2" 
+          fill="none" stroke-opacity="0.2"/>
 </svg> 
