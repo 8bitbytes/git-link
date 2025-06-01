@@ -1,7 +1,7 @@
 {
-  "name": "git-link",
-  "displayName": "Git Link",
-  "description": "Copy Git links to files and code snippets with customizable domain options",
+  "name": "repoanchor",
+  "displayName": "Repo Anchor",
+  "description": "Copy repository links to files and code snippets with customizable domain options",
   "version": "0.1.0",
   "publisher": "peterhallock",
   "author": {
@@ -9,11 +9,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/8bitbytes/git-link"
+    "url": "https://github.com/8bitbytes/repoanchor"
   },
-  "homepage": "https://8bitbytes.github.io/git-link/",
+  "homepage": "https://github.com/8bitbytes/repoanchor/blob/main/README.md",
   "bugs": {
-    "url": "https://github.com/8bitbytes/git-link/issues"
+    "url": "https://github.com/8bitbytes/repoanchor/issues"
   },
   "license": "MIT",
   "icon": "media/icon.png",
@@ -44,60 +44,60 @@
   "contributes": {
     "commands": [
       {
-        "command": "git-link.copyGitLink",
-        "title": "Copy Git Link to Selection"
+        "command": "repoanchor.copyGitLink",
+        "title": "Copy Repository Link to Selection"
       },
       {
-        "command": "git-link.copyFileGitLink",
-        "title": "Copy Git Link to File"
+        "command": "repoanchor.copyFileGitLink",
+        "title": "Copy Repository Link to File"
       },
       {
-        "command": "git-link.openSettings",
-        "title": "Open Git Link Settings"
+        "command": "repoanchor.openSettings",
+        "title": "Open Repo Anchor Settings"
       }
     ],
     "menus": {
       "editor/context": [
         {
-          "command": "git-link.copyGitLink",
+          "command": "repoanchor.copyGitLink",
           "group": "navigation"
         }
       ],
       "editor/title/context": [
         {
-          "command": "git-link.copyFileGitLink",
+          "command": "repoanchor.copyFileGitLink",
           "group": "navigation"
         }
       ],
       "explorer/context": [
         {
-          "command": "git-link.copyFileGitLink",
+          "command": "repoanchor.copyFileGitLink",
           "group": "navigation"
         }
       ]
     },
     "configuration": {
-      "title": "Git Link",
+      "title": "Repo Anchor",
       "properties": {
-        "gitLink.useCustomUrl": {
+        "repoanchor.useCustomUrl": {
           "type": "boolean",
-          "description": "Always use a custom URL instead of the Git remote URL",
+          "description": "Always use a custom URL instead of the repository remote URL",
           "default": false
         },
-        "gitLink.customUrl": {
+        "repoanchor.customUrl": {
           "type": "string",
-          "description": "Custom URL to use as the base for Git links. If it includes a path (contains '/'), the entire URL will be used. If it's just a domain (e.g., 'github.mycompany.com'), only the domain will be replaced while keeping the repository path.",
+          "description": "Custom URL to use as the base for repository links. If it includes a path (contains '/'), the entire URL will be used. If it's just a domain (e.g., 'github.mycompany.com'), only the domain will be replaced while keeping the repository path.",
           "default": ""
         },
-        "gitLink.customDomains": {
+        "repoanchor.customDomains": {
           "type": "array",
-          "description": "List of custom domains that can be selected for Git links",
+          "description": "List of custom domains that can be selected for repository links",
           "items": {
             "type": "string"
           },
           "default": []
         },
-        "gitLink.lastUsedDomain": {
+        "repoanchor.lastUsedDomain": {
           "type": "string",
           "description": "The last used custom domain",
           "default": ""
