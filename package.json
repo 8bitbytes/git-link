@@ -2,7 +2,7 @@
   "name": "repoanchor",
   "displayName": "Repo Anchor",
   "description": "Copy repository links to files and code snippets with customizable domain options",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "publisher": "petehallock",
   "author": {
     "name": "Peter Hallock"
@@ -59,19 +59,19 @@
     "menus": {
       "editor/context": [
         {
-          "command": "repoanchor.copyGitLink",
+          "command": "repoanchor.copyRepoLink",
           "group": "navigation"
         }
       ],
       "editor/title/context": [
         {
-          "command": "repoanchor.copyFileGitLink",
+          "command": "repoanchor.copyFileRepoLink",
           "group": "navigation"
         }
       ],
       "explorer/context": [
         {
-          "command": "repoanchor.copyFileGitLink",
+          "command": "repoanchor.copyFileRepoLink",
           "group": "navigation"
         }
       ]

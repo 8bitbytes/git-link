@@ -7,15 +7,14 @@ suite('Extension Test Suite', () => {
         const extensions = vscode.extensions.all;
         
         // Find our extension (may have different publisher in dev mode)
-        const gitLinkExtension = extensions.find(ext => 
-            ext.id.toLowerCase().includes('git-link') || 
-            ext.id.toLowerCase().includes('gitlink')
+        const repoanchorExtension = extensions.find(ext => 
+            ext.id.toLowerCase().includes('repoanchor') 
         );
         
         // In test mode, we might not have our extension activated
         // This test passes if we can find the extension or if the test is running in isolation
-        if (gitLinkExtension) {
-            assert.notStrictEqual(gitLinkExtension, undefined);
+        if (repoanchorExtension) {
+            assert.notStrictEqual(repoanchorExtension, undefined);
         } else {
             // Skip test when extension not found (running in isolation)
             console.log('Extension not found in test environment, skipping test');
@@ -29,9 +28,9 @@ suite('Extension Test Suite', () => {
         
         // We just test that these are valid command ids
         const commandIds = [
-            'git-link.copyGitLink',
-            'git-link.copyFileGitLink',
-            'git-link.openSettings'
+            'repoanchor.copyRepoLink',
+            'repoanchor.copyFileRepoLink',
+            'repoanchor.openSettings'
         ];
         
         // Nothing to assert here, just verifying the command ids are valid strings

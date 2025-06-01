@@ -56,7 +56,7 @@ export async function generateGitLink(filePath: string, startLine: number, endLi
         const relativePath = path.relative(rootPath, filePath).replace(/\\/g, '/');
 
         // Get config settings
-        const config = vscode.workspace.getConfiguration('gitLink');
+        const config = vscode.workspace.getConfiguration('repoanchor');
         const useCustomUrl = Boolean(config.get('useCustomUrl'));
         const customDomains = config.get('customDomains') as string[] || [];
         const lastUsedDomain = String(config.get('lastUsedDomain') || '');

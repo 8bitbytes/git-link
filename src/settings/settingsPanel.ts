@@ -48,7 +48,7 @@ export class SettingsPanel {
         );
         
         // Get initial settings from VS Code
-        const config = vscode.workspace.getConfiguration('gitLink');
+        const config = vscode.workspace.getConfiguration('repoanchor');
         this._currentSettings = {
             useCustomUrl: Boolean(config.get('useCustomUrl')),
             customUrl: String(config.get('customUrl') || ''),
@@ -82,7 +82,7 @@ export class SettingsPanel {
     private async _initializeWebview() {
         try {
             // Get current settings
-            const config = vscode.workspace.getConfiguration('gitLink');
+            const config = vscode.workspace.getConfiguration('repoanchor');
             const useCustomUrl = Boolean(config.get('useCustomUrl'));
             const customUrl = String(config.get('customUrl') || '');
             const customDomains = config.get('customDomains') as string[] || [];
@@ -177,7 +177,7 @@ export class SettingsPanel {
         if (this._isDisposed) return;
         
         try {
-            const config = vscode.workspace.getConfiguration('gitLink');
+            const config = vscode.workspace.getConfiguration('repoanchor');
             
             // Save custom URL settings
             await config.update('useCustomUrl', Boolean(message.useCustomUrl), vscode.ConfigurationTarget.Global);
@@ -242,7 +242,7 @@ export class SettingsPanel {
         
         try {
             // Use a synchronous approach for the final save to ensure it completes
-            const config = vscode.workspace.getConfiguration('gitLink');
+            const config = vscode.workspace.getConfiguration('repoanchor');
             config.update('useCustomUrl', Boolean(this._currentSettings.useCustomUrl), vscode.ConfigurationTarget.Global);
             config.update('customUrl', String(this._currentSettings.customUrl || ''), vscode.ConfigurationTarget.Global);
             config.update('customDomains', this._currentSettings.customDomains || [], vscode.ConfigurationTarget.Global);
