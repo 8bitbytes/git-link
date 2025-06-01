@@ -131,6 +131,6 @@ export async function generateGitLink(filePath: string, startLine: number, endLi
             return `${baseUrl}/blob/${branchOrCommit}/${relativePath}${endLine ? `#L${startLine}-L${endLine}` : `#L${startLine}`}`;
         }
     } catch (error) {
-        throw new Error(`Error generating Git link: ${error}`);
+        throw new Error(`Error generating Repo link: ${error}`);
     }
 } 

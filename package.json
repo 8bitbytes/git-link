@@ -2,7 +2,7 @@
   "name": "repoanchor",
   "displayName": "Repo Anchor",
   "description": "Copy repository links to files and code snippets with customizable domain options",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "publisher": "petehallock",
   "author": {
     "name": "Peter Hallock"
@@ -11,7 +11,7 @@
     "type": "git",
     "url": "https://github.com/8bitbytes/repoanchor"
   },
-  "homepage": "https://github.com/8bitbytes/repoanchor/blob/main/README.md",
+  "homepage": "https://8bitbytes.github.io/repoanchor/",
   "bugs": {
     "url": "https://github.com/8bitbytes/repoanchor/issues"
   },
@@ -44,11 +44,11 @@
   "contributes": {
     "commands": [
       {
-        "command": "repoanchor.copyGitLink",
+        "command": "repoanchor.copyRepoLink",
         "title": "Copy Repository Link to Selection"
       },
       {
-        "command": "repoanchor.copyFileGitLink",
+        "command": "repoanchor.copyFileRepoLink",
         "title": "Copy Repository Link to File"
       },
       {

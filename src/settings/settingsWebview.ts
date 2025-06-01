@@ -43,8 +43,7 @@ export function getSettingsWebviewContent(
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src ${webview.cspSource} 'unsafe-inline'; script-src ${webview.cspSource};">
-    <title>Git Link Settings</title>
-    <style>
+    <title>Repo Anchor Settings</title>
         body {
             padding: 20px;
             color: ${darkMode ? '#cccccc' : '#333333'};
@@ -247,7 +246,7 @@ export function getSettingsWebviewContent(
     </style>
 </head>
 <body>
-    <h1>Git Link Settings</h1>
+    <h1>Repo Anchor Settings</h1>
     
     <div class="section">
         <div class="checkbox-row">
@@ -255,7 +254,7 @@ export function getSettingsWebviewContent(
             <label for="use-custom-url">Always use custom domain</label>
         </div>
         
-        <p class="description">When enabled, Git links will use a custom domain instead of the Git remote URL.</p>
+        <p class="description">When enabled, Repo Anchor will use a custom domain instead of the Git remote URL.</p>
     </div>
     
     <div class="section">
@@ -267,7 +266,7 @@ export function getSettingsWebviewContent(
         </div>
         
         <p class="description">
-            Add domains to use for Git links. Include the protocol (https://) if needed, or just enter the domain name.
+            Add domains to use for Repo Anchor. Include the protocol (https://) if needed, or just enter the domain name.
             If a domain includes a path (contains '/'), the entire URL will be used. 
             If it's just a domain (e.g., 'github.mycompany.com'), only the domain part will be replaced while keeping the repository path.
         </p>

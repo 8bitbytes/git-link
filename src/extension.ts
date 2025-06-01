@@ -9,12 +9,12 @@ export function activate(context: vscode.ExtensionContext) {
             SettingsPanel.createOrShow(context.extensionUri);
         } catch (error) {
             console.error('Error opening settings:', error);
-            vscode.window.showErrorMessage(`Failed to open Git Link settings: ${error}`);
+            vscode.window.showErrorMessage(`Failed to open Repo Anchor settings: ${error}`);
         }
     });
 
-    // Command to copy git link from editor
-    const editorCommand = vscode.commands.registerCommand('repoanchor.copyGitLink', async () => {
+    // Command to copy repo link from editor
+    const editorCommand = vscode.commands.registerCommand('repoanchor.copyRepoLink', async () => {
         try {
             const editor = vscode.window.activeTextEditor;
             if (!editor) {
@@ -33,14 +33,14 @@ export function activate(context: vscode.ExtensionContext) {
             
             // Copy to clipboard
             await vscode.env.clipboard.writeText(gitUrl);
-            vscode.window.showInformationMessage(`Git link copied to clipboard!`);
+            vscode.window.showInformationMessage(`Repo link copied to clipboard!`);
         } catch (error) {
             vscode.window.showErrorMessage(`${error}`);
         }
     });
 
-    // Command to copy git link from tab/explorer
-    const fileCommand = vscode.commands.registerCommand('repoanchor.copyFileGitLink', async (uri?: vscode.Uri) => {
+    // Command to copy repo link from tab/explorer
+    const fileCommand = vscode.commands.registerCommand('repoanchor.copyFileRepoLink', async (uri?: vscode.Uri) => {
         try {
             // Use provided uri or active editor
             let filePath;
@@ -59,7 +59,7 @@ export function activate(context: vscode.ExtensionContext) {
             
             // Copy to clipboard
             await vscode.env.clipboard.writeText(gitUrl);
-            vscode.window.showInformationMessage(`Git link to file copied to clipboard!`);
+            vscode.window.showInformationMessage(`Repo link to file copied to clipboard!`);
         } catch (error) {
             vscode.window.showErrorMessage(`${error}`);
         }

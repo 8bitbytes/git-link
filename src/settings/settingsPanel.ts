@@ -37,8 +37,8 @@ export class SettingsPanel {
         
         // Create webview panel
         this._panel = vscode.window.createWebviewPanel(
-            'gitLinkSettings',
-            'Git Link Settings',
+            'repoAnchorSettings',
+            'Repo Anchor Settings',
             vscode.ViewColumn.One,
             {
                 enableScripts: true,
