@@ -4,7 +4,7 @@ import { generateGitLink } from './gitLinkGenerator';
 
 export function activate(context: vscode.ExtensionContext) {
     // Command to open settings UI with error handling
-    const settingsCommand = vscode.commands.registerCommand('git-link.openSettings', () => {
+    const settingsCommand = vscode.commands.registerCommand('repoanchor.openSettings', () => {
         try {
             SettingsPanel.createOrShow(context.extensionUri);
         } catch (error) {
@@ -14,7 +14,7 @@ export function activate(context: vscode.ExtensionContext) {
     });
 
     // Command to copy git link from editor
-    const editorCommand = vscode.commands.registerCommand('git-link.copyGitLink', async () => {
+    const editorCommand = vscode.commands.registerCommand('repoanchor.copyGitLink', async () => {
         try {
             const editor = vscode.window.activeTextEditor;
             if (!editor) {
@@ -40,7 +40,7 @@ export function activate(context: vscode.ExtensionContext) {
     });
 
     // Command to copy git link from tab/explorer
-    const fileCommand = vscode.commands.registerCommand('git-link.copyFileGitLink', async (uri?: vscode.Uri) => {
+    const fileCommand = vscode.commands.registerCommand('repoanchor.copyFileGitLink', async (uri?: vscode.Uri) => {
         try {
             // Use provided uri or active editor
             let filePath;
