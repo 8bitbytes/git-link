@@ -2,6 +2,13 @@ import * as fs from 'fs';
 import { execSync } from 'child_process';
 import * as path from 'path';
 
+interface PackageJson {
+    name: string;
+    version: string;
+    publisher: string;
+    [key: string]: unknown;
+}
+
 // Read command line arguments
 const altPublisher = process.argv[2];
 if (!altPublisher) {
@@ -13,7 +20,7 @@ if (!altPublisher) {
 // Read the original package.json
 const packageJsonPath = path.join(__dirname, '..', 'package.json');
 const originalPackageJson = fs.readFileSync(packageJsonPath, 'utf8');
-const packageData = JSON.parse(originalPackageJson);
+const packageData = JSON.parse(originalPackageJson) as PackageJson;
 
 // Store the original publisher
 const originalPublisher = packageData.publisher;
@@ -37,6 +44,7 @@ try {
     console.log(`\nSuccessfully created: ${newVsixName}`);
 } catch (error) {
     console.error('Error creating package:', error);
+    process.exit(1);
 } finally {
     // Restore the original package.json
     packageData.publisher = originalPublisher;
