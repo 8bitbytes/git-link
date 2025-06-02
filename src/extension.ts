@@ -65,7 +65,77 @@ export function activate(context: vscode.ExtensionContext) {
         }
     });
 
-    context.subscriptions.push(editorCommand, fileCommand, settingsCommand);
+    // Command to open repo link from editor (with selection support)
+    const openLinkFromEditorCommand = vscode.commands.registerCommand('repoanchor.openRepoLinkFromEditor', async () => {
+        try {
+            const editor = vscode.window.activeTextEditor;
+            if (!editor) {
+                vscode.window.showErrorMessage('No active editor');
+                return;
+            }
+
+            const filePath = editor.document.uri.fsPath;
+            const selection = editor.selection;
+            
+            // Check if there's an actual selection
+            let startLine: number;
+            let endLine: number | undefined;
+            
+            if (!selection.isEmpty) {
+                startLine = selection.start.line + 1;
+                endLine = selection.end.line + 1;
+            } else {
+                // No selection, use current line
+                startLine = selection.active.line + 1;
+            }
+
+            console.log('filePath', filePath);
+            console.log('startLine', startLine);
+            console.log('endLine', endLine);
+            const gitUrl = await generateGitLink(filePath, startLine, endLine);
+            
+            // Open in browser
+            vscode.env.openExternal(vscode.Uri.parse(gitUrl));
+            vscode.window.showInformationMessage(`Opening repository link in browser...`);
+        } catch (error) {
+            vscode.window.showErrorMessage(`${error}`);
+        }
+    });
+
+    // Command to open repo link from tab/explorer (whole file)
+    const openLinkFromTabCommand = vscode.commands.registerCommand('repoanchor.openRepoLinkFromTab', async (uri?: vscode.Uri) => {
+        try {
+            let filePath: string;
+            
+            if (uri) {
+                filePath = uri.fsPath;
+            } else {
+                const editor = vscode.window.activeTextEditor;
+                if (!editor) {
+                    vscode.window.showErrorMessage('No file selected');
+                    return;
+                }
+                filePath = editor.document.uri.fsPath;
+            }
+
+            console.log('filePath', filePath);
+            const gitUrl = await generateGitLink(filePath, 1); // Always link to whole file
+            
+            // Open in browser
+            vscode.env.openExternal(vscode.Uri.parse(gitUrl));
+            vscode.window.showInformationMessage(`Opening repository link in browser...`);
+        } catch (error) {
+            vscode.window.showErrorMessage(`${error}`);
+        }
+    });
+
+    context.subscriptions.push(
+        editorCommand, 
+        fileCommand, 
+        openLinkFromEditorCommand, 
+        openLinkFromTabCommand, 
+        settingsCommand
+    );
 
     // If the settings panel is already visible, show it instead of creating a new one
     if ((SettingsPanel as any).instance) {

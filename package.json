@@ -2,7 +2,7 @@
   "name": "repoanchor",
   "displayName": "Repo Anchor",
   "description": "Copy repository links to files and code snippets with customizable domain options",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "publisher": "petehallock",
   "author": {
     "name": "Peter Hallock"
@@ -52,6 +52,14 @@
         "title": "Copy Repository Link to File"
       },
       {
+        "command": "repoanchor.openRepoLinkFromEditor",
+        "title": "Open Repository Link to Selection in Browser"
+      },
+      {
+        "command": "repoanchor.openRepoLinkFromTab",
+        "title": "Open Repository Link to File in Browser"
+      },
+      {
         "command": "repoanchor.openSettings",
         "title": "Open Repo Anchor Settings"
       }
@@ -60,19 +68,52 @@
       "editor/context": [
         {
           "command": "repoanchor.copyRepoLink",
-          "group": "navigation"
+          "group": "6_copypath@1",
+          "when": "editorTextFocus"
+        },
+        {
+          "command": "repoanchor.openRepoLinkFromEditor",
+          "group": "6_copypath@2",
+          "when": "editorTextFocus"
         }
       ],
       "editor/title/context": [
         {
           "command": "repoanchor.copyFileRepoLink",
-          "group": "navigation"
+          "group": "6_copypath@2"
+        },
+        {
+          "command": "repoanchor.openRepoLinkFromTab",
+          "group": "6_copypath@3"
         }
       ],
       "explorer/context": [
         {
           "command": "repoanchor.copyFileRepoLink",
-          "group": "navigation"
+          "group": "6_copypath@2"
+        },
+        {
+          "command": "repoanchor.openRepoLinkFromTab",
+          "group": "6_copypath@3"
+        }
+      ],
+      "commandPalette": [
+        {
+          "command": "repoanchor.copyRepoLink",
+          "when": "editorTextFocus"
+        },
+        {
+          "command": "repoanchor.copyFileRepoLink"
+        },
+        {
+          "command": "repoanchor.openRepoLinkFromEditor",
+          "when": "editorTextFocus"
+        },
+        {
+          "command": "repoanchor.openRepoLinkFromTab"
+        },
+        {
+          "command": "repoanchor.openSettings"
         }
       ]
     },
@@ -110,6 +151,7 @@
     "compile": "webpack",
     "watch": "webpack --watch",
     "package": "webpack --mode production --devtool hidden-source-map",
+    "package-alt": "ts-node scripts/package-alt.ts",
     "test-compile": "tsc -p ./",
     "test-watch": "tsc -watch -p ./",
     "pretest": "npm run test-compile && npm run lint",
@@ -131,6 +173,7 @@
     "sharp": "^0.34.2",
     "sinon": "^20.0.0",
     "ts-loader": "^9.2.2",
+    "ts-node": "^10.9.2",
     "typescript": "^4.3.2",
     "vscode-test": "^1.5.2",
     "webpack": "^5.38.1",
